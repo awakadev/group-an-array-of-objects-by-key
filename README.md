@@ -23,14 +23,15 @@
           'year': '2012'
         }
       ]
-      
-      let result = cars.reduce((r, a) => {
+```
+_____
+```      
+      cars.reduce((r, a) => {
         r[a.date] = r[a.date] || []
         r[a.date].push(a)
         return r
       }, {})
 ```
-At the result we get
 ```
 {
     'audi': [
@@ -64,19 +65,34 @@ At the result we get
     ]
 }
 ```
-
-# Count
+_____
 ```
-      let result = cars.reduce((r, a) => {
+      cars.reduce((r, a) => {
         r[a.make] = r[a.make] || 0
         r[a.make] += 1
         return r
       }, {})
 ```
-Result
 ```
 {
     'audi': 2,
     'ford': 2,
     'kia': 1
 }
+```
+_____
+```
+      Object.entries(cars.reduce((r, a) => {
+        r[a.make] = r[a.date] || 0
+        r[a.make] += 1
+        return r
+      }, {}))
+```
+```
+[
+      ['audi', 2],
+      ['ford', 2],
+      ['kia', 1]
+
+]
+```
