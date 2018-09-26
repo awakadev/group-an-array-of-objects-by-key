@@ -2,25 +2,25 @@
 ```
       let cars = [
         {
-          make: 'audi',
-          'model: 'r8',
-          year: '2012'
+          'make': 'audi',
+          'model': 'r8',
+          'year': '2012'
         }, {
-          make: 'audi',
-          model: 'rs5',
-          year: '2013'
+          'make': 'audi',
+          'model': 'rs5',
+          'year': '2013'
         }, {
-          make: 'ford',
-          model: 'mustang',
-          year: '2012'
+          'make': 'ford',
+          'model': 'mustang',
+          'year': '2012'
         }, {
-          make: 'ford',
-          model: 'fusion',
-          year: '2015'
+          'make': 'ford',
+          'model': 'fusion',
+          'year': '2015'
         }, {
-          make: 'kia',
-          model: 'optima',
-          year: '2012'
+          'make': 'kia',
+          'model': 'optima',
+          'year': '2012'
         }
       ]
       
@@ -30,37 +30,53 @@
         return r
       }, {})
 ```
-At the output we get
+At the result we get
 ```
 {
-    audi: [
+    'audi': [
         {
-            make: 'audi',
-            model: 'r8',
-            year: '2012'
+            'make': 'audi',
+            'model': 'r8',
+            'year': '2012'
         }, {
-            make: 'audi',
-            model: 'rs5',
-            year: '2013'
+            'make': 'audi',
+            'model': 'rs5',
+            'year': '2013'
         },
     ],
-    ford: [
+    'ford': [
         {
-            make: 'ford',
-            model: 'mustang',
-            year: '2012'
+            'make': 'ford',
+            'model': 'mustang',
+            'year': '2012'
         }, {
-            make: 'ford',
-            model: 'fusion',
-            year: '2015'
+            'make': 'ford',
+            'model': 'fusion',
+            'year': '2015'
         }
     ],
-    kia: [
+    'kia': [
         {
-            make: 'kia',
-            model: 'optima',
-            year: '2012'
+            'make': 'kia',
+            'model': 'optima',
+            'year': '2012'
         }
     ]
 }
 ```
+
+# Count
+```
+      let result = cars.reduce((r, a) => {
+        r[a.make] = r[a.make] || 0
+        r[a.make] += 1
+        return r
+      }, {})
+```
+Result
+```
+{
+    'audi': 2,
+    'ford': 2,
+    'kia': 1
+}
